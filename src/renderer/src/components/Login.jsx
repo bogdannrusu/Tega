@@ -3,18 +3,37 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
+import axios from 'axios';
 const { ipcRenderer } = window.require('electron');
 
 function Login() {
 
    const [isOpen, setIsOpen] = useState(false);
+   const [login, setLogin] = useState('');
+   const [password, setPassword] = useState('');
 
    const toggleModal = () => {
     setIsOpen(!isOpen);
   };
+
    const handleCloseApp = () => {
    ipcRenderer.send('close-app');
  };
+
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+ try {
+  const response = await axios.post('http://localhost:5000/login', { login, password });
+  console.log(response.data);
+  // Handle successful login, redirect user, etc.
+} catch (error) {
+  console.error(error.response.data);
+  // Handle login error, display message to user, etc.
+}
+};
+
+
   return (
     <>
      <div>
@@ -112,15 +131,15 @@ function Login() {
       </h2>
 </div>
 <div className="flex justify-center my-2 mx-4 md:mx-0">
-   <form className="w-full max-w-xl bg-white rounded-lg shadow-md p-6 align-bottom">
+   <form onSubmit={handleSubmit} className="w-full max-w-xl bg-white rounded-lg shadow-md p-6 align-bottom">
       <div className="flex flex-wrap -mx-3 mb-6">
          <div className="w-full md:w-full px-3 mb-6">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor='Password'>Email address</label>
-            <input className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='email'  required />
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor='Password'>Username</label>
+            <input type="login" value={login} onChange={(e) => setLogin(e.target.value)} className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" required />
          </div>
          <div className="w-full md:w-full px-3 mb-6">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor='Password'>Password</label>
-            <input className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='password' required />
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor='Password'>Parola</label>
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" required />
          </div>
          <div className="w-full md:w-full px-3 mb-6">
             <button className="appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">Conectare</button>
