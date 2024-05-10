@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
@@ -6,19 +7,29 @@ import icon from '../../resources/icon.png?asset'
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 900,
-    height: 670,
+    width: 1980,
+    height: 1080,
     show: false,
     autoHideMenuBar: true,
+    frame: false,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false
     }
   })
 
+  mainWindow.loadURL('your-renderer-url');
+
+  ipcMain.on('close-app', () => {
+    mainWindow.close();
+  });
+
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
+    mainWindow.maximize()
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
