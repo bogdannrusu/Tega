@@ -7,21 +7,21 @@ app = FastAPI()
 # MySQL connection
 db = mysql.connector.connect(
   host="localhost",
-  user="username",
-  password="password",
-  database="database_name"
+  user="root",
+  password="Ban4ever!#",
+  database="brs_autoschool"
 )
 
 
 class User(BaseModel):
-  email: str
+  login: str
   password: str
 
 
 @app.post("/login")
 def login(user: User):
   cursor = db.cursor()
-  cursor.execute("SELECT * FROM users WHERE email = %s AND password = %s", (user.email, user.password))
+  cursor.execute("SELECT * FROM users_admin ua WHERE ua.login = %s AND password = %s", (user.login, user.password))
   user = cursor.fetchone()
   cursor.close()
 
