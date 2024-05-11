@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unknown-property */
-import React from "react";
+import LoginWeb from "./LoginWeb";
+import React, {useState} from "react";
 import {
   Navbar,
   MobileNav,
@@ -7,9 +8,16 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
+
  
 export default function NavBar() {
   const [openNav, setOpenNav] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpenComponent = () => {
+    setIsOpen(true);
+  };
+
  
   React.useEffect(() => {
     window.addEventListener(
@@ -128,7 +136,8 @@ export default function NavBar() {
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-1">
-        <Button className="border-2 border-yellow-400 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-yellow-400 transition duration-300">Conecteaza-te</Button>
+        <Button onClick={handleOpenComponent} className="border-2 border-yellow-400 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-yellow-400 transition duration-300">Conecteaza-te</Button>
+        {isOpen && <LoginWeb />}
         </div>
         <IconButton
           variant="text"
