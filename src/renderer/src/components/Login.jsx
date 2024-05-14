@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import axios from 'axios';
 const { ipcRenderer } = window.require('electron');
 
@@ -98,7 +98,7 @@ function Login() {
                   Sunteti sigur ca vreti sa iesiti din aplicatie?
                 </h3>
                 <button
-                  data-modal-hide="popup-modal"
+                  data-modal-hide="popup-modal"fimg
                   type="button"
                   className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center"
                   onClick={handleCloseApp}

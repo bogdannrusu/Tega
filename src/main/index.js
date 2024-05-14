@@ -10,6 +10,7 @@ function createWindow() {
     width: 1980,
     height: 1080,
     show: false,
+    icon: 'src/renderer/src/assets/driving-school.ico',
     autoHideMenuBar: true,
     frame: false,
     ...(process.platform === 'linux' ? { icon } : {}),
