@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
-import LoginWeb from "./LoginWeb";
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Navbar,
   MobileNav,
@@ -10,21 +11,12 @@ import {
 } from "@material-tailwind/react";
 
  
-export default function NavBar() {
-  const [openNav, setOpenNav] = React.useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+export default function Main() {
+  const navigate = useNavigate();
 
-  const handleOpenComponent = () => {
-    setIsOpen(true);
-  };
-
- 
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false),
-    );
-  }, []);
+  const openLoginWeb = () => {
+    navigate('/login');
+  }
  
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
@@ -136,48 +128,21 @@ export default function NavBar() {
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-1">
-        <Button onClick={handleOpenComponent} className="border-2 border-yellow-400 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-yellow-400 transition duration-300">Conecteaza-te</Button>
-        {isOpen && <LoginWeb />}
+        <Button 
+        onClick={openLoginWeb} 
+        className="border-2 border-yellow-400 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-yellow-400 transition duration-300">
+          Conecteaza-te
+          </Button>
         </div>
         <IconButton
           variant="text"
           className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
           ripple={false}
-          onClick={() => setOpenNav(!openNav)}
         >
-          {openNav ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              className="h-6 w-6"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          )}
+         
         </IconButton>
       </div>
-      <MobileNav open={openNav}>
+      <MobileNav >
         <div className="container mx-auto">
           {navList}
           <div className="flex items-center gap-x-1">
