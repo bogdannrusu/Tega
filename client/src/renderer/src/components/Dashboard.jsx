@@ -3,15 +3,45 @@
 import React, { useState } from 'react';
 const { ipcRenderer } = window.require('electron');
 import { useNavigate } from 'react-router-dom';
-import Elevi from './Elevi';
+
+
 
 function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenDrop, setIsOpenDrop] = useState(false);
+  const [isOpenSettings, setIsOpenSettings] = useState(false);
+  const navigate = useNavigate();
+  
+  //Deschide componenta Adaugare Elevi
+  const openAddElevi = () => {
+    navigate('/add_elevi')
+  }
 
+  //Deschiderea componentului DeleteElevi
+  const openDeleteElevi = () => {
+    navigate('/delete_elevi')
+  }
+
+  const openViewELevi = () => {
+    navigate('/view_elevi')
+  }
+
+  //Deschide setarile pentru admin
+  const toggleSettings = () => {
+    setIsOpenSettings(!isOpenSettings);
+  }
+
+  //Functia de dropdown al butonului(submeniul)
+  const toggleDropdownElevi = () => {
+    setIsOpenDrop(!isOpenDrop);
+  }; 
+
+  //functia de deschidere a modalului de close app
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
 
+   //functia de close app directionata catre index.js (electron)
    const handleCloseApp = () => {
    ipcRenderer.send('close-app');
  };
@@ -32,7 +62,7 @@ function Dashboard() {
         </span>
       </button>
     </div>
-    <div className="m-4">
+    <div className="m-4" data-twe-dropdown-position="dropend">
       <ul className="mb-4 flex flex-col gap-1">
         <li>
           <a aria-current="page" className="active" href="#">
@@ -47,12 +77,67 @@ function Dashboard() {
         </li>
         <li>
           <a className="" href="#">
-            <button className="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize" type="button">
+            <button 
+            className="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize" 
+            type="button"
+            id="dropdownMenuButton1e"
+            data-twe-dropdown-toggle-ref
+            aria-expanded={isOpenDrop}
+            onClick={toggleDropdownElevi}
+            data-twe-ripple-init>
+              <span className="ms-2 w-2 [&>svg]:h-5 [&>svg]:w-5">
+             <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="w-5 h-5 text-inherit">
                 <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clipRule="evenodd"></path>
               </svg>
               <p className="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">elevi</p>
             </button>
+            {isOpenDrop && (
+        <ul
+          className="absolute z-[1000] float-left m-0 min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block dark:bg-surface-dark"
+          aria-labelledby="dropdownMenuButton1e"
+          data-twe-dropdown-menu-ref
+        >
+          <li>
+            <button
+              className="block w-full whitespace-nowrap bg-black px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              onClick={openAddElevi}
+              data-twe-dropdown-item-ref
+            >
+              Adauga elevi
+            </button>
+          </li>
+          <li>
+            <button
+              className="block w-full whitespace-nowrap bg-black px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              onClick={openDeleteElevi}
+              data-twe-dropdown-item-ref
+            >
+              Sterge Elevi
+            </button>
+          </li>
+          <li>
+            <button
+              className="block w-full whitespace-nowrap bg-black px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              onClick={openViewELevi}
+              data-twe-dropdown-item-ref
+            >
+              Vizualizeaza elevi
+            </button>
+          </li>
+        </ul>
+      )}
           </a>
         </li>
         <li>
@@ -71,14 +156,9 @@ function Dashboard() {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="w-5 h-5 text-inherit">
                 <path fillRule="evenodd" d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z" clipRule="evenodd"></path>
               </svg>
-              <p className="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">mai multe</p>
+              <p className="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">to be continued</p>
             </button>
           </a>
-        </li>
-      </ul>
-      <ul className="mb-4 flex flex-col gap-1">
-        <li className="mx-3.5 mt-4 mb-2">
-          <p className="block antialiased font-sans text-sm leading-normal text-white font-black uppercase opacity-75">auth pages</p>
         </li>
       </ul>
     </div>
@@ -101,7 +181,7 @@ function Dashboard() {
             </ol>
           </nav>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center" data-twe-dropdown-position="dropend">
           <button className="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30 grid xl:hidden" type="button">
             <span className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" strokeWidth="3" className="h-6 w-6 text-blue-gray-500">
@@ -109,14 +189,56 @@ function Dashboard() {
               </svg>
             </span>
           </button>
-          <a href="#"> 
-            <button className="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30 grid xl:hidden" type="button">
+          <a href="#">
+            <button
+            className="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30 grid xl:hidden" 
+            type="button"
+            data-twe-dropdown-toggle-ref
+            aria-expanded={isOpenSettings}
+            onClick={toggleSettings}
+            data-twe-ripple-init>
               <span className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5 text-blue-gray-500">
                   <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clipRule="evenodd"></path>
                 </svg>
               </span>
             </button>
+            {isOpenSettings && (
+        <ul
+          className="absolute z-[1000] float-left m-0 min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block dark:bg-surface-dark"
+          aria-labelledby="dropdownMenuButton1e"
+          data-twe-dropdown-menu-ref
+        >
+          <li>
+            <a
+              className="block w-full whitespace-nowrap bg-black px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              href="#"
+              data-twe-dropdown-item-ref
+            >
+              Test 1
+            </a>
+          </li>
+          <li>
+            <a
+              className="block w-full whitespace-nowrap bg-black px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              href="#"
+              data-twe-dropdown-item-ref
+            >
+              Test 2
+            </a>
+          </li>
+          <li>
+            <a
+              className="block w-full whitespace-nowrap bg-black px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              href="#"
+              data-twe-dropdown-item-ref
+            >
+            Test 3
+            </a>
+          </li>
+        </ul>
+      )} 
+            
           </a>
           <button className="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30" type="button">
             <span className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
@@ -125,6 +247,7 @@ function Dashboard() {
               </svg>
             </span>
           </button>
+          
           <button aria-expanded="false" aria-haspopup="menu" id=":r2:" className="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30" type="button">
             <span className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5 text-blue-gray-500">
