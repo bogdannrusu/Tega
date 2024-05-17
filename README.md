@@ -32,3 +32,4 @@ $ npm run build:mac
 # For Linux
 $ npm run build:linux
 ```
+# For backend deployment and testing we'll using postman tool 

@@ -135,7 +135,6 @@ function Login() {
          
       </div>
       <h2 className="text-4xl tracking-tight">
-         
       </h2>
 </div>
 <div className="flex justify-center my-2 mx-4 md:mx-0">
