@@ -111,10 +111,47 @@ function Dashboard() {
         >
           <li>
             <button
-              className="block w-full whitespace-nowrap bg-black px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              className="block w-full whitespace-nowrap bg-black px-3 py-3 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
               onClick={openAddElevi}
               data-twe-dropdown-item-ref
             >
+              <svg
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 473.935 473.935"
+              xmlSpace="preserve"
+              className=" w-7 h-7 ml-1 text-inherit fill-current text-black"
+  >
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+            <circle className="fill-gray-600" cx="236.967" cy="236.967" r="236.967"></circle>
+        <path
+        className="fill-blue-200"
+        d="M236.952,473.935c78.533,0,148.115-38.222,191.232-97.058c-8.011-11.48-39.525-45.025-145.593-70.548
+        c0-24.082-2.398-38.507-2.398-38.507s31.289-43.337,33.691-103.513c0-9.568,4.7-77.436-77.017-80.508c0-0.03,0-0.079,0-0.101
+        c-0.202,0-0.382,0.045-0.602,0.045c-0.21,0-0.385-0.045-0.595-0.045c0,0.022,0,0.075,0,0.101
+        c-81.702,3.068-77.017,70.941-77.017,80.505c2.398,60.175,33.691,103.513,33.691,103.513s-2.417,14.425-2.417,38.507
+        C86.664,331.174,54.08,363.623,45.044,375.908C88.104,435.286,157.997,473.935,236.952,473.935z"
+      ></path>
+      <circle className="fill-gray-700" cx="332.233" cy="363.515" r="57.062"></circle>
+      <g>
+        <path
+          className="fill-white"
+          d="M370.572,363.361c0,4.962-4.022,8.988-8.999,8.988h-58.559c-4.965,0-8.995-4.026-8.995-8.988l0,0
+          c0-4.969,4.03-8.995,8.995-8.995h58.559C366.549,354.362,370.572,358.392,370.572,363.361L370.572,363.361z"
+        ></path>
+        <path
+          className="fill-white"
+          d="M332.293,401.632c-4.965,0-8.992-4.026-8.992-8.995v-58.559c0-4.969,4.026-8.995,8.992-8.995l0,0
+          c4.969,0,8.999,4.026,8.999,8.995v58.559C341.292,397.606,337.262,401.632,332.293,401.632L332.293,401.632z"
+        ></path>
+      </g>
+    </g>
+  </svg>
+
               Adauga elevi
             </button>
           </li>
@@ -124,6 +161,15 @@ function Dashboard() {
               onClick={openDeleteElevi}
               data-twe-dropdown-item-ref
             >
+              <svg 
+              fill="currentColor" 
+              viewBox="0 0 24 24" 
+              id="delete-user-circle" 
+              data-name="Line Color" 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="icon line-color">
+                <g id="SVGRepo_bgCarrier" strokeWidth="0">
+                  </g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><line id="secondary" x1="18" y1="7.5" x2="21" y2="10.5" style="fill: none; stroke: #2ca9bc; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><line id="secondary-2" data-name="secondary" x1="21" y1="7.5" x2="18" y2="10.5" style="fill: none; stroke: #2ca9bc; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><path id="secondary-3" data-name="secondary" d="M12,15a5,5,0,0,0-5,4.5,9,9,0,0,0,9.94,0A5,5,0,0,0,12,15Z" style="fill: none; stroke: #2ca9bc; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="secondary-4" data-name="secondary" d="M14,7.53A4.09,4.09,0,0,0,12,7a4,4,0,1,0,3,6.64" style="fill: none; stroke: #2ca9bc; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="primary" d="M20.48,15a8.86,8.86,0,0,1-2.12,3.36A9,9,0,1,1,12,3a8.8,8.8,0,0,1,3,.52" style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg>
               Sterge Elevi
             </button>
           </li>

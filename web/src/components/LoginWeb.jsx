@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
-import { useNavigation } from 'react-router-dom'
+import React from 'react';
+import { useNavigation } from 'react-router-dom';
+
 
 export default function LoginWeb() {
   return (

@@ -13,7 +13,7 @@ function App() {
   return (
    <Router>
     <Routes>
-      <Route path='/' element={<Dashboard />} />
+      <Route path='/' element={<Login />} />
       <Route path='/dashboard' element={<Dashboard />} />
       <Route path='/add_elevi' element={<AddElevi />} />
       <Route path='/delete_elevi' element= {<DeleteElevi />} />
