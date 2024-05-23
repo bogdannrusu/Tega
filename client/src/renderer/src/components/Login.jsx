@@ -30,7 +30,7 @@ function Login() {
  try {
   const response = await axios.post('http://localhost:5000/api/login', { username, password });
       if (response.data.message === 'Login successful') {
-        navigate('/dashboard');
+        navigate('/home');
   } else {
     setError('Invalid username or password');
   }

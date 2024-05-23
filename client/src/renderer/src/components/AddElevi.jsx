@@ -10,12 +10,10 @@ function AddElevi() {
   return (
     <>
     <h2 className='text-center my-10'>Add Elevi Component</h2>
-    <Button variant="outlined">Back</Button>
-    <button 
-    className='bg-black font-mono text-wrap rounded-md text-white'
-     onClick={() => navigate('/dashboard')}
-
-    > Inapoi </button>
+    <Button 
+     variant="outlined"  
+     className='bg-black font-mono text-wrap rounded-md text-white'
+     onClick={() => navigate('/home')}>Back</Button>
         
     </>
 

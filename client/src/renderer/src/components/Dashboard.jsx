@@ -5,7 +5,6 @@ const { ipcRenderer } = window.require('electron');
 import { useNavigate } from 'react-router-dom';
 
 
-
 function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenDrop, setIsOpenDrop] = useState(false);
@@ -51,7 +50,7 @@ function Dashboard() {
     <div className="min-h-screen bg-gray-50/50">
   <aside className="bg-gradient-to-br from-gray-800 to-gray-900 -translate-x-80 fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0">
     <div className="relative border-b border-white/20">
-      <a className="flex items-center gap-4 py-6 px-8" href="/dashboard">
+      <a className="flex items-center gap-4 py-6 px-8" href="/home">
         <h6 className="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-white">BRS Autoschool</h6>
       </a>
       <button className="middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-8 max-w-[32px] h-8 max-h-[32px] rounded-lg text-xs text-white hover:bg-white/10 active:bg-white/30 absolute right-0 top-0 grid rounded-br-none rounded-tl-none xl:hidden" type="button">
@@ -83,7 +82,7 @@ function Dashboard() {
             id="dropdownMenuButton1e"
             data-twe-dropdown-toggle-ref
             aria-expanded={isOpenDrop}
-            onClick={toggleDropdownElevi}
+            onClick={ toggleDropdownElevi }
             data-twe-ripple-init>
               <span className="ms-2 w-2 [&>svg]:h-5 [&>svg]:w-5">
              <svg
@@ -111,8 +110,8 @@ function Dashboard() {
         >
           <li>
             <button
-              className="block w-full whitespace-nowrap bg-black px-3 py-3 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-              onClick={openAddElevi}
+              className="block w-full whitespace-nowrap bg-white px-3 py-3 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              onClick={ openAddElevi }
               data-twe-dropdown-item-ref
             >
               <svg
@@ -157,26 +156,18 @@ function Dashboard() {
           </li>
           <li>
             <button
-              className="block w-full whitespace-nowrap bg-black px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              className="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
               onClick={openDeleteElevi}
               data-twe-dropdown-item-ref
             >
-              <svg 
-              fill="currentColor" 
-              viewBox="0 0 24 24" 
-              id="delete-user-circle" 
-              data-name="Line Color" 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="icon line-color">
-                <g id="SVGRepo_bgCarrier" strokeWidth="0">
-                  </g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><line id="secondary" x1="18" y1="7.5" x2="21" y2="10.5" style="fill: none; stroke: #2ca9bc; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><line id="secondary-2" data-name="secondary" x1="21" y1="7.5" x2="18" y2="10.5" style="fill: none; stroke: #2ca9bc; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><path id="secondary-3" data-name="secondary" d="M12,15a5,5,0,0,0-5,4.5,9,9,0,0,0,9.94,0A5,5,0,0,0,12,15Z" style="fill: none; stroke: #2ca9bc; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="secondary-4" data-name="secondary" d="M14,7.53A4.09,4.09,0,0,0,12,7a4,4,0,1,0,3,6.64" style="fill: none; stroke: #2ca9bc; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="primary" d="M20.48,15a8.86,8.86,0,0,1-2.12,3.36A9,9,0,1,1,12,3a8.8,8.8,0,0,1,3,.52" style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg>
+              
               Sterge Elevi
             </button>
           </li>
           <li>
             <button
-              className="block w-full whitespace-nowrap bg-black px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-              onClick={openViewELevi}
+              className="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              onClick={ openViewELevi }
               data-twe-dropdown-item-ref
             >
               Vizualizeaza elevi
@@ -257,7 +248,7 @@ function Dashboard() {
         >
           <li>
             <a
-              className="block w-full whitespace-nowrap bg-black px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              className="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
               href="#"
               data-twe-dropdown-item-ref
             >
@@ -266,7 +257,7 @@ function Dashboard() {
           </li>
           <li>
             <a
-              className="block w-full whitespace-nowrap bg-black px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              className="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
               href="#"
               data-twe-dropdown-item-ref
             >
@@ -275,7 +266,7 @@ function Dashboard() {
           </li>
           <li>
             <a
-              className="block w-full whitespace-nowrap bg-black px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+              className="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
               href="#"
               data-twe-dropdown-item-ref
             >

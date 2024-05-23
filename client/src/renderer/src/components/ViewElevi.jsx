@@ -11,7 +11,7 @@ function ViewElevi() {
     <h2 className='text-center my-10'>View Elevi Component</h2>
     <button 
     className='bg-black font-mono text-wrap rounded-md text-white'
-     onClick={() => navigate('/dashboard')}
+     onClick={() => navigate('/home')}
 
     > Inapoi </button>
         

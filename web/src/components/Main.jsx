@@ -108,9 +108,9 @@ export default function Main() {
     return (
       <div className="flex flex-col items-center justify-center gap-5 py-10 px-4 sm:px-6 lg:px-9">
         <div className="container text-center text-md-left aos-init aos-animate" data-aos="fade-up">
-          <h1 className="font-oswald text-custom-50">Fă primul pas spre obținerea permisului de conducere</h1>
+          <h1 className="font-bitter text-custom-50">Fă primul pas spre obținerea permisului de conducere</h1>
           <br />
-          <h2>Înscrie-te în Școala Auto Artur Cecan și beneficiază de metodologia care a ajutat peste 10.000 de persoane să obțină permisul de conducere.</h2>
+          <h2 className="font-bitter">Înscrie-te în Școala Auto Artur Cecan și beneficiază de metodologia care a ajutat peste 10.000 de persoane să obțină permisul de conducere.</h2>
         </div>
       </div>
     );
@@ -119,8 +119,7 @@ export default function Main() {
   return (
     <>
     <div className="ToggleDarkMode">
-    
-    <div>
+     <div>
       {loading || buttonLoading ? (
         <div className="flex items-center justify-center h-screen">
           <ClockLoader color={'#4B0082'} loading={true} size={50} />

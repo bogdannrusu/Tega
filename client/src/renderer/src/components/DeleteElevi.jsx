@@ -11,7 +11,7 @@ function DeleteElevi() {
     <h2 className='text-center my-10'>Delete Elevi Component</h2>
     <button 
     className='bg-black font-mono text-wrap rounded-md text-white'
-     onClick={() => navigate('/dashboard')}
+     onClick={() => navigate('/home')}
 
     > Inapoi </button>
         

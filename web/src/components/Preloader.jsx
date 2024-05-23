@@ -33,7 +33,7 @@ function Preloader(props) {
     }, []);
 
     return (
-        <animated.div className="fixed h-screen bg-black top-0 left-0 w-full h-full flex justify-center items-center z-50" style={{ ...fadeAnimation, pointerEvents: 'none' }}>
+        <animated.div className="fixed h-screen bg-black top-0 left-0 w-full flex justify-center items-center z-50" style={{ ...fadeAnimation, pointerEvents: 'none' }}>
 
             <animated.div className=" text-white text-9xl font-bold" style={{ zIndex: 9999 }}>
                 {countAnimation.number.to(val => `${Math.floor(val)}%`)}
