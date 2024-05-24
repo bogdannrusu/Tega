@@ -111,6 +111,9 @@ export default function Main() {
           <h1 className="font-bitter text-custom-50">Fă primul pas spre obținerea permisului de conducere</h1>
           <br />
           <h2 className="font-bitter">Înscrie-te în Școala Auto Artur Cecan și beneficiază de metodologia care a ajutat peste 10.000 de persoane să obțină permisul de conducere.</h2>
+          <button className="bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-6 rounded-full">
+            Înscrie-te
+          </button>
         </div>
       </div>
     );

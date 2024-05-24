@@ -240,42 +240,6 @@ function Dashboard() {
                 </svg>
               </span>
             </button>
-            {isOpenSettings && (
-        <ul
-          className="absolute z-[1000] float-left m-0 min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block dark:bg-surface-dark"
-          aria-labelledby="dropdownMenuButton1e"
-          data-twe-dropdown-menu-ref
-        >
-          <li>
-            <a
-              className="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-              href="#"
-              data-twe-dropdown-item-ref
-            >
-              Test 1
-            </a>
-          </li>
-          <li>
-            <a
-              className="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-              href="#"
-              data-twe-dropdown-item-ref
-            >
-              Test 2
-            </a>
-          </li>
-          <li>
-            <a
-              className="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-              href="#"
-              data-twe-dropdown-item-ref
-            >
-            Test 3
-            </a>
-          </li>
-        </ul>
-      )} 
-            
           </a>
           <button className="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30" type="button">
             <span className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
