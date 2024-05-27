@@ -1,43 +1,32 @@
-from flask import Flask, jsonify
-import mysql.connector
+from fastapi import FastAPI, Depends
+from sqlalchemy.orm import Session
+from app import models
 
-app = Flask(__name__)
+from . import models, database
 
-# Establish a connection to the database
-cnx = mysql.connector.connect(
-    user='root',
-    password='Ban4ever!#',
-    host='localhost',
-    port='3305',
-    database='brs_autoschool',
-    auth_plugin='mysql_native_password'
-)
+app = FastAPI()
 
-cursor = cnx.cursor()
+# Dependency
+def get_db():
+    db = database.SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
-@app.route('/api/users', methods=['GET'])
-def get_data():
-    cursor.execute("SELECT * FROM users_admin")
+@app.get("/")
+def read_root():
+    return {"message": "Hello, World!"}
 
-    # Fetch the results
-    results = cursor.fetchall()
-    
-    data = []
-    for row in results:
-        data.append({
-            'id': row[0],
-            'username': row[1],
-            'password': row[2],
-            'email': row[3],
-            'functie': row[4],
-        })
+@app.post("/users/")
+def create_user(Usename: str, Password: str, Email: str, Functie: str, db: Session = Depends(get_db)):
+    db_user = models.User(username=Usename, password=Password, email=Email, functie=Functie)
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user
 
-    # Close the cursor and connection
-    cursor.close()
-    cnx.close()
-
-    # Return the data as a JSON response
-    return jsonify(data)
-
-if __name__ == '__main__':
-    app.run(debug=True)
+@app.get("/users/")
+def read_users(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+    users = db.query(models.User).offset(skip).limit(limit).all()
+    return users
