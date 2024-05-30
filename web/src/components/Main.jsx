@@ -89,7 +89,7 @@ export default function Main() {
             <div className="flex items-center justify-end gap-3">
               <button
                 onClick={ openLoginWeb }
-                className="hidden items-center justify-center rounded-xs bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-black sm:inline-flex"
+                className="hidden items-center justify-center rounded-xl bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-black sm:inline-flex"
               >
                 Conectează-te
               </button>
