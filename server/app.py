@@ -6,7 +6,7 @@ from . import models, database
 
 app = FastAPI()
 
-# Dependency
+# Dependente
 def get_db():
     db = database.SessionLocal()
     try:
@@ -16,15 +16,15 @@ def get_db():
 
 @app.get("/")
 def read_root():
-    return {"message": "Hello, World!"}
+    return {"message": "Test, 123!"}
 
-@app.post("/users/")
-def create_user(Usename: str, Password: str, Email: str, Functie: str, db: Session = Depends(get_db)):
-    db_user = models.User(username=Usename, password=Password, email=Email, functie=Functie)
-    db.add(db_user)
-    db.commit()
-    db.refresh(db_user)
-    return db_user
+# @app.post("/users/")
+# def create_user(Usename: str, Password: str, Email: str, Functie: str, db: Session = Depends(get_db)):
+#     db_user = models.User(username=Usename, password=Password, email=Email, functie=Functie)
+#     db.add(db_user)
+#    db.commit()
+#    db.refresh(db_user)
+#    return db_user
 
 @app.get("/users/")
 def read_users(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):

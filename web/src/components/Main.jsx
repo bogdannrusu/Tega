@@ -89,9 +89,9 @@ export default function Main() {
             <div className="flex items-center justify-end gap-3">
               <button
                 onClick={ openLoginWeb }
-                className="hidden items-center justify-center rounded-xl bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-black sm:inline-flex"
+                className="hidden items-center justify-center rounded-xs bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-black sm:inline-flex"
               >
-                Conecteaza-te
+                Conectează-te
               </button>
             </div>     
           </div>
@@ -106,21 +106,133 @@ export default function Main() {
   // MainContainer
   const ContainerInfo = () => {
     return (
+      <section className="bg-white dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center gap-5 py-10 px-4 sm:px-6 lg:px-9">
         <div className="container text-center text-md-left aos-init aos-animate" data-aos="fade-up">
-          <h1 className="font-bitter text-custom-50">Fă primul pas spre obținerea permisului de conducere</h1>
+          <h1 className="font-extrabold text-custom-50 text-gray-900 dark:text-white">Fă primul pas spre obținerea permisului de conducere</h1>
           <br />
-          <h2 className="font-bitter">Înscrie-te în Școala Auto Artur Cecan și beneficiază de metodologia care a ajutat peste 10.000 de persoane să obțină permisul de conducere.</h2>
+          <h2 className="text-gray-900 dark:text-white font-thin">Înscrie-te în Școala Auto BRS Autoschool și beneficiază de metodologia care a ajutat peste 5000 de persoane să obțină permisul de conducere.</h2>
           <button className="bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-6 rounded-full">
             Înscrie-te
           </button>
         </div>
       </div>
+      </section>
     );
   };
 
+
+  //Pricing
+  const PricingContainer = () => {
+    return(
+      <section className="bg-white dark:bg-gray-900">
+  <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"> Alege varianta care ți se potrivește și începe acum călătoria ta ca șofer </h2>
+          
+      </div>
+      <div className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+          <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+              <h3 className="mb-4 text-2xl font-semibold"> Limba Română </h3>
+              <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">Lecții de teorie În timpul săptămânii </p>
+              <div className="flex justify-center items-baseline my-8">
+                  <span className="mr-2 text-5xl font-extrabold">1600 MDL</span>
+
+              </div>
+              <ul role="list" className="mb-8 space-y-4 text-left">
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>3 luni de teorie</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>24 lecții practice de 90 min - 320 lei/lecția - 7680 lei total.</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>Mașini cutie manuală - Dacia Sandero, Skoda Fabia</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>Mașini cutie automată - Skoda Fabia </span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>Instructori auto: <span className="font-semibold text-center">10 instructori cu experiență </span></span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span> Programare individuală a graficului practic </span>
+                  </li>
+              </ul>
+              <a href="#" className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Mă înscriu</a>
+          </div>
+          
+          <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+              <h3 className="mb-4 text-2xl font-semibold">Limba rusă </h3>
+              <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400"> Lecții de teorie În timpul săptămânii </p>
+              <div className="flex justify-center items-baseline my-8">
+                  <span className="mr-2 text-5xl font-extrabold">1800 MDL</span>
+              </div>
+              <ul role="list" className="mb-8 space-y-4 text-left">
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span> 3 luni de teorie</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>24 lecții practice de 90 min - 320 lei/lecția - 7680 lei total.</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>Mașini cutie manuală - Dacia Sandero, Skoda Fabia</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>Mașini cutie automată - Skoda Fabia</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>Instructori auto: <span className="font-semibold text-center">10 instructori cu experiență </span></span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>Programare individuală a graficului practic</span>
+                  </li>
+              </ul>
+              <a href="#" className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Mă înscriu</a>
+          </div>
+          <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+              <h3 className="mb-4 text-2xl font-semibold">Lecții Practice suplimentare</h3>
+              <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">Cutie mecanica / automata</p>
+              <div className="flex justify-center items-baseline my-8">
+                  <span className="mr-2 text-5xl font-extrabold"> 300 MDL </span>
+              </div>
+              <ul role="list" className="mb-8 space-y-4 text-left">
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>Durata 90 min</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>Dacă deții permis de conducere</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                      <span>Dacă ai făcut o școală de șoferi dar nu ai obținut permisul de conducere</span>
+                  </li>
+              </ul>
+              <a href="#" className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900"> Mă înscriu </a>
+          </div>
+      </div>
+  </div>
+</section>
+    )
+  }
+
   return (
     <>
+    <section className="bg-white dark:bg-gray-900">
     <div className="ToggleDarkMode">
      <div>
       {loading || buttonLoading ? (
@@ -132,11 +244,12 @@ export default function Main() {
           <NavBar openLoginWeb={openLoginWeb} />
           <hr /><br /><br /><br /><br /><br />
           <ContainerInfo />
+          <PricingContainer />
         </>
       )}
     </div>
     </div>
-    
+    </section>
     </>
     
   );
