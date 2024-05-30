@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../../client/img/icon.ico";
 import ClockLoader from "react-spinners/ClockLoader";
+import emailjs from '@emailjs/browser';
 import "../css/style.css";
 
 export default function Main() {
@@ -17,13 +18,7 @@ export default function Main() {
     setTimeout(() => setLoading(false), 2000);
   }, []);
 
-  const openLoginWeb = () => {
-    setButtonLoading(true);
-    setTimeout(() => {
-      setButtonLoading(false);
-      navigate('/login');
-    }, 1000); // Adjust the delay as needed
-  }
+
 
   //ToggleDarkMode
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -43,7 +38,7 @@ export default function Main() {
   };
 
   // Navbar
-  const NavBar = ({ openLoginWeb }) => {
+  const NavBar = () => {
     return (
       <>
       <div className="dark:bg-gray-800"> 
@@ -84,14 +79,12 @@ export default function Main() {
               <a className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900" href="#">Cursuri</a>
               <a className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900" href="#">Video</a>
               <a className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900" href="#">Practica</a>
-              <a className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900" href="#">Contact</a>
             </div>
             <div className="flex items-center justify-end gap-3">
               <button
-                onClick={ openLoginWeb }
-                className="hidden items-center justify-center rounded-xl bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-black sm:inline-flex"
+                className="hidden items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-blue-700 sm:inline-flex"
               >
-                Conectează-te
+                Contacați-ne
               </button>
             </div>     
           </div>
@@ -112,7 +105,7 @@ export default function Main() {
           <h1 className="font-extrabold text-custom-50 text-gray-900 dark:text-white">Fă primul pas spre obținerea permisului de conducere</h1>
           <br />
           <h2 className="text-gray-900 dark:text-white font-thin">Înscrie-te în Școala Auto BRS Autoschool și beneficiază de metodologia care a ajutat peste 5000 de persoane să obțină permisul de conducere.</h2>
-          <button className="bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-6 rounded-full">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-6 rounded-full">
             Înscrie-te
           </button>
         </div>
@@ -277,31 +270,101 @@ export default function Main() {
     )
   }
 
-  const Contacts = () => {
+  const EmailForm = () => {
+    const form = useRef();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+  
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      const serviceId = 'service_b550bdp';
+      const templateId = 'template_99508au';
+      const publicKey = 'u3yYLhuZIyEK-hrjy';
+  
+      const templateParams = {
+        from_name: name,
+        from_email: email,
+        to_name: 'Bogdan Rusu',
+        message: message
+      };
+  
+      emailjs.send(serviceId, templateId, templateParams, publicKey)
+        .then((response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          setName('');
+          setEmail('');
+          setMessage('');
+        })
+        .catch((error) => {
+          console.error('Error sending email...', error);
+        });
+    };
+  
     return (
       <section className="bg-white dark:bg-gray-900">
-      <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-      <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Trimite cerere</h2>
-      <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl"> Trimiteti o scrisoare in caz ca aveti ceva neclaritati, iar noi va vom contacta imediat </p>
-      <form action="#" className="space-y-8">
-          <div>
-              <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
-              <input type="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required />
-          </div>
-          <div>
-              <label htmlFor="subject" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
-              <input type="text" id="subject" className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required />
-          </div>
-          <div className="sm:col-span-2">
-              <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
-              <textarea id="message" rows="6" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
-          </div>
-          <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
-      </form>
-  </div>
-  </section>
-    )
-  }
+        <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
+            Trimite cerere
+          </h2>
+          <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
+            Trimiteti o scrisoare in caz ca aveti ceva neclaritati, iar noi va vom contacta imediat
+          </p>
+          <form ref={form} onSubmit={sendEmail} className="space-y-8">
+            <div>
+              <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Your name
+              </label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                placeholder="Numele dvs"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Your email
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                placeholder="Email dvs"
+                required
+              />
+            </div>
+            <div className="sm:col-span-2">
+              <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
+                Your message
+              </label>
+              <textarea
+                id="message"
+                rows="6"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Lasă un comentariu..."
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+              Expediază
+            </button>
+          </form>
+        </div>
+      </section>
+    );
+  };
+  
 
   const Footer = () => {
     return (
@@ -321,9 +384,6 @@ export default function Main() {
                 </li>
                 <li>
                     <a href="#" className="hover:underline me-4 md:me-6">Licensing</a>
-                </li>
-                <li>
-                    <a href="#" className="hover:underline">Contact</a>
                 </li>
             </ul>
         </div>
@@ -347,12 +407,12 @@ export default function Main() {
         </div>
       ) : (
         <>
-          <NavBar openLoginWeb={openLoginWeb} />
+          <NavBar />
           <hr /><br /><br /><br /><br /><br />
           <Intro />
           <CarouselCars />
           <Pricing />
-          <Contacts />
+          <EmailForm />
           <Footer />
         </>
       )}
