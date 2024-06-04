@@ -48,19 +48,7 @@ function Dashboard() {
   return (
     <>
     <div className="min-h-screen bg-gray-50/50">
-  <aside className="bg-gradient-to-br from-gray-800 to-gray-900 -translate-x-80 fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0">
-    <div className="relative border-b border-white/20">
-      <a className="flex items-center gap-4 py-6 px-8" href="/home">
-        <h6 className="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-white">BRS Autoschool</h6>
-      </a>
-      <button className="middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-8 max-w-[32px] h-8 max-h-[32px] rounded-lg text-xs text-white hover:bg-white/10 active:bg-white/30 absolute right-0 top-0 grid rounded-br-none rounded-tl-none xl:hidden" type="button">
-        <span className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" aria-hidden="true" className="h-5 w-5 text-white">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </span>
-      </button>
-    </div>
+      <aside className="bg-gradient-to-br from-gray-800 to-gray-900 -translate-x-80 fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0">
     <div className="m-4" data-twe-dropdown-position="dropend">
       <ul className="mb-4 flex flex-col gap-1">
         <li>
@@ -114,42 +102,7 @@ function Dashboard() {
               onClick={ openAddElevi }
               data-twe-dropdown-item-ref
             >
-              <svg
-              version="1.1"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              viewBox="0 0 473.935 473.935"
-              xmlSpace="preserve"
-              className=" w-7 h-7 ml-1 text-inherit fill-current text-black"
-  >
-            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-            <g id="SVGRepo_iconCarrier">
-            <circle className="fill-gray-600" cx="236.967" cy="236.967" r="236.967"></circle>
-        <path
-        className="fill-blue-200"
-        d="M236.952,473.935c78.533,0,148.115-38.222,191.232-97.058c-8.011-11.48-39.525-45.025-145.593-70.548
-        c0-24.082-2.398-38.507-2.398-38.507s31.289-43.337,33.691-103.513c0-9.568,4.7-77.436-77.017-80.508c0-0.03,0-0.079,0-0.101
-        c-0.202,0-0.382,0.045-0.602,0.045c-0.21,0-0.385-0.045-0.595-0.045c0,0.022,0,0.075,0,0.101
-        c-81.702,3.068-77.017,70.941-77.017,80.505c2.398,60.175,33.691,103.513,33.691,103.513s-2.417,14.425-2.417,38.507
-        C86.664,331.174,54.08,363.623,45.044,375.908C88.104,435.286,157.997,473.935,236.952,473.935z"
-      ></path>
-      <circle className="fill-gray-700" cx="332.233" cy="363.515" r="57.062"></circle>
-      <g>
-        <path
-          className="fill-white"
-          d="M370.572,363.361c0,4.962-4.022,8.988-8.999,8.988h-58.559c-4.965,0-8.995-4.026-8.995-8.988l0,0
-          c0-4.969,4.03-8.995,8.995-8.995h58.559C366.549,354.362,370.572,358.392,370.572,363.361L370.572,363.361z"
-        ></path>
-        <path
-          className="fill-white"
-          d="M332.293,401.632c-4.965,0-8.992-4.026-8.992-8.995v-58.559c0-4.969,4.026-8.995,8.992-8.995l0,0
-          c4.969,0,8.999,4.026,8.999,8.995v58.559C341.292,397.606,337.262,401.632,332.293,401.632L332.293,401.632z"
-        ></path>
-      </g>
-    </g>
-  </svg>
+              
 
               Adauga elevi
             </button>
