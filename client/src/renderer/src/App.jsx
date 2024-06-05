@@ -15,7 +15,12 @@ function App() {
     <Routes>
       <Route path='/' element={<Dashboard />} />
       <Route path='/home' element={<Dashboard />} />
-      <Route path='/add_elevi' element={<AddElevi />} />
+      <Route path='/add_elevi' element={
+        <>
+        <AddElevi /> 
+        </>
+      
+      } />
       <Route path='/delete_elevi' element= {<DeleteElevi />} />
       <Route path='/view_elevi' element= {<ViewElevi />} />
     </Routes>

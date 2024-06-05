@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class User(BaseModel):
     id: int
     username: str
@@ -9,6 +10,7 @@ class User(BaseModel):
 
     class Config:
         orm_mode = True
+
 
 class Profesori(BaseModel):
     id: int

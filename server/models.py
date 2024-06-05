@@ -3,8 +3,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 
+Base = declarative_base()
 
-Base  = declarative_base()
 
 class User(Base):
     __tablename__ = 'users'
@@ -13,6 +13,7 @@ class User(Base):
     password = Column(String(255))
     email = Column(String(100))
     functie = Column(String(100))
+
 
 class Profesori(Base):
     __tablename__ = 'profesori'
