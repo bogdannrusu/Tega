@@ -53,7 +53,7 @@ export default function Main() {
               <NavBar isDarkMode={isDarkMode} handleToggle={handleToggle} />
               <hr /><br /><br /><br /><br /><br />
               <Intro />
-              < Carousel />
+
               <Pricing />
               <EmailForm />
               <Footer />
