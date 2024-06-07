@@ -1,11 +1,3 @@
-# npm
-
-An Electron application with React
-
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-
 ## Project Setup
 
 ### Install
@@ -32,4 +24,7 @@ $ npm run build:mac
 # For Linux
 $ npm run build:linux
 ```
-# For backend deployment and testing we'll using postman tool 
+# For backend deployment and testing we'll using postman tool
+# For frontend deployment and testing we'll using edge browser
+# For database deployment and testing we'll using MySQL
+# For testing we'll using vitest
