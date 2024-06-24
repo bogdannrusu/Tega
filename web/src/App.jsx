@@ -1,19 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Main from './components/Main';
+import AppMain from './components/AppMain';
 
-function App() {
-  return (
-    <>
-    <Router>
-    <Routes>
-    <Route path='/' element={<Main />} />
-    </Routes>
-    </Router>
-    </>
-
-  )
-}
-
-export default App
+export default function App()   
+{  return  <AppMain /> }
