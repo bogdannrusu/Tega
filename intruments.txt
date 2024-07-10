@@ -1,0 +1,13 @@
+#Soft
+- npm install mui
+- npm install react-router-dom
+- npm install react-icons
+- npm install tailwindcss
+- npm install axios
+
+
+#api
+- npm install mongoose
+- npm install express
+- npm install cors
+- npm install nodemon
