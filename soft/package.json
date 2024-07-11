@@ -20,6 +20,7 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^3.0.0",
+    "axios": "^1.7.2",
     "electron-updater": "^6.1.7",
     "react-router-dom": "^6.24.1"
   },
@@ -33,7 +34,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.3",
     "init": "^0.1.2",
-    "npx": "^3.0.0",
+    "npx": "^10.2.2",
     "prettier": "^3.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
