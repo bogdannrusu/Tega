@@ -1,30 +1,48 @@
+// server.js
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+const Movie = require('./models/Movie');
+const User = require('./models/User');
 
 const app = express();
 const port = 3000;
 
-// Updated connection string without deprecated options
-mongoose.connect('mongodb://localhost:27017/cash_register', { useUnifiedTopology: true });
+// Replace with your MongoDB connection string
+const dbUri = 'mongodb+srv://userBRS:Ban4ever@clustermain.vpwp2eh.mongodb.net/movie';
 
-const db = mongoose.connection;
-db.on('error', (error) => console.error(error));
-db.once('open', () => console.log('Connected to Database'));
+// Connect to MongoDB with improved error handling
+mongoose.connect(dbUri, { serverSelectionTimeoutMS: 5000 })
+  .then(() => console.log('MongoDB connected...'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
-app.use(cors());
+// Middleware to parse JSON
 app.use(express.json());
 
-//const userRoutes = require('./routes/userRoutes');
-//const productRoutes = require('./routes/productRoutes');
-//const transactionRoutes = require('./routes/transactionRoutes');
-const movieRoutes = require('./routes/movieRoutes');
+// Handle connection errors after initial connection
+mongoose.connection.on('error', err => {
+  console.error('MongoDB error:', err);
+});
 
-//app.use('/users', userRoutes);
-//app.use('/products', productRoutes);
-//app.use('/transactions', transactionRoutes);
-app.use('/movies', movieRoutes);
+// Route to get all movies
+app.get('/movies', async (req, res) => {
+  try {
+    const movies = await Movie.find();
+    res.json(movies);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
+// Route to get all users
+app.get('/users', async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on http://localhost:${port}`);
 });
