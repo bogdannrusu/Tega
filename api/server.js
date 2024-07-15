@@ -5,7 +5,7 @@ const Movie = require('./models/Movie');
 const User = require('./models/User');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 8000;
 
 // Replace with your MongoDB connection string
 const dbUri = 'mongodb+srv://userBRS:Ban4ever@clustermain.vpwp2eh.mongodb.net/movie';
